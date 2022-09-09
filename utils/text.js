@@ -23,7 +23,7 @@ export  const texts = [
   {
     id: 3,
     title: "CRYPTOCURRENCY INVESTMENT",
-    desc: "4Dfuture trading engine has been designed to meet the highest online-trading industry standards. All systems have been uniquely coded to minimize latency and increase order execution speed. System automatically monitors all buying power factor, maximum order size, maximum position size after every order placement. 4Dfuture prides itself on having one of the most advanced and reliable trading software on the market.",
+    desc: "Crexconnect trading engine has been designed to meet the highest online-trading industry standards. All systems have been uniquely coded to minimize latency and increase order execution speed. System automatically monitors all buying power factor, maximum order size, maximum position size after every order placement. Crexconnect prides itself on having one of the most advanced and reliable trading software on the market.",
     reversed: true,
     imageUrl: cryptopiggy,
     background: "#BAFFC9"
@@ -111,9 +111,9 @@ export const about = [
   {
     id: 2,
     title: "Who We Are",
-    span: [" 4thefuture is backed by a team of world-class financial experts and the best technology talent. Our talented team of software engineers, designers, and data scientists have previously worked at such companies as Amazon, Google, and Apple.", 
+    span: [" Crexconnect is backed by a team of world-class financial experts and the best technology talent. Our talented team of software engineers, designers, and data scientists have previously worked at such companies as Amazon, Google, and Apple.", 
 
-    "Our Investment Advisory Committee are recognized thought leaders in the investment community. They play an advisory role in Wealthsimple's investment management process and serve as a sounding board for 4thefuture's management team."
+    "Our Investment Advisory Committee are recognized thought leaders in the investment community. They play an advisory role in Wealthsimple's investment management process and serve as a sounding board for Crexconnect's management team."
   ]  
   },
 
