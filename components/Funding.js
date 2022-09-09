@@ -72,11 +72,12 @@ export default function Funding() {
             <MenuItem value={0}>Bitcoin</MenuItem>
             <MenuItem value={1}>Ethereum</MenuItem>
             <MenuItem value={2}>BNB</MenuItem>
+            <MenuItem value={3}>Tether</MenuItem>
           </Select>
         </FormControl>
 
         <div className={styles.qr}>
-            <Image priority src="/assets/qr1.jpeg" width={200} height={200} layout='responsive' alt="QR code"/>
+            <Image priority src={`/assets/qr${coin}.jpeg`} width={200} height={200} layout='responsive' alt="QR code"/>
             <input
             type="text"
             ref={textAreaRef}

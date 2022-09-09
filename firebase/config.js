@@ -8,12 +8,12 @@ import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDuaYxqwDFkrmlMLGjE1ICtrtUz87W5llc",
-  authDomain: "thefuture-b0f19.firebaseapp.com",
-  projectId: "thefuture-b0f19",
-  storageBucket: "thefuture-b0f19.appspot.com",
-  messagingSenderId: "438481447287",
-  appId: "1:438481447287:web:bddda906eebe27f7899972"
+  apiKey: "AIzaSyBhWNYit9lD2vXh4OnAdWf4iAAUgnMY6PY",
+  authDomain: "crexconect.firebaseapp.com",
+  projectId: "crexconect",
+  storageBucket: "crexconect.appspot.com",
+  messagingSenderId: "456809613894",
+  appId: "1:456809613894:web:8cba9130bab799c6d09847"
 };
 
 
