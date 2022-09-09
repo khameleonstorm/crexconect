@@ -24,6 +24,7 @@
 .qr{
   width: 100%;
   padding: 15px;
+  position: relative;
 }
 
 .qr input{

@@ -18,9 +18,7 @@ export default function Charts() {
         <div className={styles.text}>
           <h2>NFTs Coming Soon!</h2>
         </div>
-        <div className={styles.gif}>
-          <Image prioty src="/assets/invisible.gif" alt="nft" layout="fill" objectFit="contain" />
-        </div>
+        <Image priority loading="eager" src="/assets/invisible.gif" alt="nft" layout="fill" objectFit="contain" />
       </div>
     </div>
   )
