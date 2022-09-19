@@ -17,10 +17,10 @@ export default function Index() {
       <Navbar showAuth={true}/>
         <div className={styles.hero}>
           <div className={styles.video}>
-            <video autoPlay muted loop>
-                <source src="https://firebasestorage.googleapis.com/v0/b/thefuture-b0f19.appspot.com/o/FashionBG.webm?alt=media&token=c3aa2de2-bfb7-48cd-b8bc-aba813d54682" 
-                type="video/webm" 
-                />
+          <video autoPlay muted loop playsInline src="/assets/fashionBG.mp4">
+                <source src="/assets/fashionBG.mp4" type="video/mp4"/>
+                <source src="/assets/fashionBG.mov" type="video/mov"/>
+                <source src="/assets/fashionBG.webm" type="video/webm"/>
             </video>
           </div>
           <div className={styles.wrap}>

@@ -3,7 +3,6 @@ import Navbar from "../../components/Navbar"
 import Link from "next/link"
 import { useState, useRef, useEffect } from "react"
 import { useLogin } from "../../hooks/useLogin"
-import useAuth from "../../hooks/useAuth"
 import { useRouter } from "next/router"
 import { auth } from "../../firebase/config"
 

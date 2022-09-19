@@ -48,7 +48,6 @@ export const useLogin = () => {
     }
 
     useEffect(() => {
-        navigate.prefetch('/dashboard')
         return () => setIsCancelled(true)
     }, [])
 

@@ -3,7 +3,7 @@ import Charts from '../../components/Charts'
 import DashboardNav from '../../components/DashboardNav'
 import SideNav from '../../components/SideNav'
 import styles from "./dashboard.module.css"
-import { collection, onSnapshot, query, where, orderBy } from "firebase/firestore"
+import { collection, onSnapshot, query, where } from "firebase/firestore"
 import { db } from "../../firebase/config"
 import { useState, useEffect } from 'react'
 import useAuth from '../../hooks/useAuth'
@@ -28,21 +28,25 @@ export default function Index() {
 
 
   useEffect(()=>{
-      if(user){
-        const q = query(collection(db, "profile"), where("email", "==", user.email))
+    if(user.email === "admin@gmail.com"){
+      router.push("/admin")
+    }
 
-        onSnapshot(q, 
-          (snapshot) => {
-            // looping through snapshot to get each individual doc
-            snapshot.forEach(doc => {
-              setUserDetails({ ...doc.data(), id: doc.id})
-            })
+    if(user){
+      const q = query(collection(db, "profile"), where("email", "==", user.email))
+
+      onSnapshot(q, 
+        (snapshot) => {
+          // looping through snapshot to get each individual doc
+          snapshot.forEach(doc => {
+            setUserDetails({ ...doc.data(), id: doc.id})
           })
-  
+      })
 
-      } else{
-        router.push('/login')
-      }
+
+    } else{
+      router.push('/login')
+    }
   }, [user, router])
 
 const view = (event) =>{

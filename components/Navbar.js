@@ -73,27 +73,31 @@ export default function Navbar({showAuth, black}) {
 
           <Menu black={black} navbg={navbg}/>
 
-          {!user && 
-            <div className={styles.profile2}>
+          {user && 
+            <div className={styles.profile}>
+              <div className={styles.image}><Image src={user.photoURL} width={35} height={35} alt="Avatar!"/></div>
+              <MdKeyboardArrowDown size="1.3em" style={(black || navbg) ? {cursor: 'pointer'}: {cursor: 'pointer', color: "white"}} onClick={handleClick}/>
               {menu && 
                 <div className={styles.menu} onClick={handleClick}>
+                  <Link href="/dashboard">Dashboard</Link>
                   <Link href="/rentHome">Rent a home</Link>
                   <Link href="/buyHome">Buy a home</Link>
                   <Link href="/invest">Cryptocurrency</Link>
                   <Link href="/stocks">Gold & Jewelry </Link>
                   <Link href="/about">Company</Link>
+                  <Button variant="outlined" color="error" size="small" style={{fontSize: "0.7rem"}} onClick={logout}> Logout <HiOutlineLogout size="1.3em"
+                  style={{marginLeft: "1rem"}}
+                  /></Button>
                 </div>
               }
             </div>
           }
 
-          {user && 
+          {!user && 
             <div className={styles.profile}>
-              {user && <div className={styles.image}><Image src={user.photoURL} width={35} height={35} alt="Avatar!"/></div>}
               <MdKeyboardArrowDown size="1.3em" style={(black || navbg) ? {cursor: 'pointer'}: {cursor: 'pointer', color: "white"}} onClick={handleClick}/>
               {menu && 
                 <div className={styles.menu} onClick={handleClick}>
-                  <Link href="/dashboard">Dashboard</Link>
                   <Link href="/rentHome">Rent a home</Link>
                   <Link href="/buyHome">Buy a home</Link>
                   <Link href="/invest">Cryptocurrency</Link>
