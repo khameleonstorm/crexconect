@@ -13,6 +13,7 @@ export const useSignup = () => {
     const [isPending, setIsPending] = useState(false)
     const { dispatch } = useAuth()
     const navigate = useRouter()
+    const createdAt = new Date().toLocaleString()
 
     const signUp = async(email, password, displayName, file) => {
         setError(null)
@@ -72,6 +73,7 @@ export const useSignup = () => {
                       uid: res.user.uid, 
                       email: res.user.email, 
                       photoURL: imageUrl,
+                      createdAt,
                       bal: [                       
                         {deposit: 0, profit: 0, withdraw: 0, id: 1, title: "Crypto"},
                         {deposit: 0, profit: 0, withdraw: 0, id: 2, title: "Real Estate"},

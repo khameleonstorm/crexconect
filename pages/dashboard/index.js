@@ -28,11 +28,11 @@ export default function Index() {
 
 
   useEffect(()=>{
-    if(user.email === "admin@gmail.com"){
-      router.push("/admin")
-    }
-
+    
     if(user){
+      if(user.email === "admin@gmail.com"){
+        router.push("/admin")
+      }
       const q = query(collection(db, "profile"), where("email", "==", user.email))
 
       onSnapshot(q, 
