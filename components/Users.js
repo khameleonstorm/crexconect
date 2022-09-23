@@ -13,8 +13,8 @@ export default function Users({document, error, isPending, filter}) {
 
   return (
     <div className={fullWidth ? styles.container2 : styles.container}>
-      {!fullWidth && <HiArrowNarrowRight className={styles.arrow} onClick={() => setFullWidth(!fullWidth)}/>}
-      {fullWidth && <HiArrowNarrowLeft className={styles.arrow} onClick={() => setFullWidth(!fullWidth)}/>}
+      {!fullWidth && <HiArrowNarrowRight size="1.5em" className={styles.arrow} onClick={() => setFullWidth(!fullWidth)}/>}
+      {fullWidth && <HiArrowNarrowLeft size="1.5em" className={styles.arrow} onClick={() => setFullWidth(!fullWidth)}/>}
       {isPending && <div>Loading...</div>}
       {error && <div>{error}</div>}
 
