@@ -61,8 +61,8 @@ export default function Fashion() {
             
             let cal = userDetails.bal[2].deposit - price
             const { bal: [crypto, real_estate, jewelry, stock] } = userDetails
-            const RE = {...real_estate, deposit: cal}
-            let newBal = [crypto, RE, jewelry, stock]
+            const gld = {...jewelry, deposit: cal}
+            let newBal = [crypto, real_estate, gld, stock]
   
             const newData = {...userDetails, bal: [...newBal]}
             const docRef = doc(db, "profile", user.email)

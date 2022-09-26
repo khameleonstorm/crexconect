@@ -13,8 +13,6 @@ export default function Profile({details, bal, view}) {
 
   useEffect(() => {
     if (bal) {
-          
-      console.log(bal)
 
       if (bal[0].deposit >= 100 || bal[1].deposit >= 100 || bal[2].deposit >= 100 || bal[3].deposit >= 100) {
         setOneStar(true)

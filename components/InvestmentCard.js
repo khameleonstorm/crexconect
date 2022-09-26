@@ -46,12 +46,12 @@ export default function InvestmentCard({plans}) {
           setSuccess(true) 
           setFailed(false)
           setMessage(true)
-          addDocument({ title: `${title} Investment`, amount, desc, createdAt, email: user.email, pending: false })
+          addDocument({ title: `${title} Investment`, amount, desc, createdAt, email: user.email, pending: true })
           
           let cal = userDetails.bal[0].deposit - amount
           const { bal: [crypto, real_estate, jewelry, stock] } = userDetails
-          const RE = {...real_estate, deposit: cal}
-          let newBal = [crypto, RE, jewelry, stock]
+          const cyp = {...crypto, deposit: cal}
+          let newBal = [cyp, real_estate, jewelry, stock]
 
           const newData = {...userDetails, bal: [...newBal]}
           const docRef = doc(db, "profile", user.email)
@@ -66,6 +66,34 @@ export default function InvestmentCard({plans}) {
           setSuccess(false)
           setMessage(true)
           addDocument({ title: `${title} Investment`, amount, desc, createdAt, email: user.email, pending: "failed" })
+        }
+
+        if(stock){
+          if (amount < userDetails.bal[3].deposit) {
+            setSuccess(true) 
+            setFailed(false)
+            setMessage(true)
+            addDocument({ title: `${title} Investment`, amount, desc, createdAt, email: user.email, pending: true })
+            
+            let cal = userDetails.bal[3].deposit - amount
+            const { bal: [crypto, real_estate, jewelry, stock] } = userDetails
+            const stk = {...stock, deposit: cal}
+            let newBal = [crypto, real_estate, jewelry, stk]
+  
+            const newData = {...userDetails, bal: [...newBal]}
+            const docRef = doc(db, "profile", user.email)
+            setDoc(docRef, newData)
+  
+          } else {
+            window.alert("request could not be fulfilled, please try again later")
+          }
+
+          if(amount > userDetails.bal[3].deposit){
+            setFailed(true)
+            setSuccess(false)
+            setMessage(true)
+            addDocument({ title: `${title} Investment`, amount, desc, createdAt, email: user.email, pending: "failed" })
+          }
         }
 
         

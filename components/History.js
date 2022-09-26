@@ -11,21 +11,23 @@ export default function History() {
   const [history, setHistory] = useState([])
   const { user } = useAuth()
 
-    if(user) {         
-      const Q = query(collection(db, "history"), where("email", "==", user.email))
-      let result = []
-      onSnapshot(Q, 
-        (snapshot) => {
-          snapshot.forEach(doc => {
-            result.push(doc.data())
-            setHistory(result)
-          })
-        })}
+  useEffect(() => {
+    const q = query(collection(db, "history"), where("email", "==", user.email))
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const docs = []
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id })
+      })
+      setHistory(docs)
+    })
+    return unsubscribe
+  }, [history])
+
 
   return (
       <div className={styles.container}>
         {history && history.map((doc) =>
-          <div className={styles.wrapper} key={doc.createdAt}>
+          <div className={styles.wrapper} key={doc.id}>
           <div className={styles.desc1}>
             <p>{doc.title}</p>
             <p>${doc.amount}</p>

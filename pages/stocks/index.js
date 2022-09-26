@@ -31,7 +31,7 @@ export default function Index() {
         <div className={styles.text}>
           <h2>Benefits and pricing For Gold & ETFs</h2>
         </div>
-        <InvestmentCard plans={plans}/>
+        <InvestmentCard plans={plans} stock={true}/>
         <Fashion />
         <Footer />
         <Contact />
