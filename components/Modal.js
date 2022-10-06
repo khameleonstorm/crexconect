@@ -41,8 +41,8 @@ export default function Modal({modal}) {
     e.preventDefault()
 
     if (amount !== null && address !== null) {
-      if (amount < userDetails.bal[2].withdraw) {
-        let cal = userDetails.bal[2].withdraw - amount
+      if (amount < userDetails.bal[0].withdraw) {
+        let cal = userDetails.bal[0].withdraw - amount
         const { bal: [crypto, real_estate, jewelry, stock] } = userDetails
         const RE = {...crypto, withdraw: cal}
         let newBal = [RE, real_estate, jewelry, stock]
@@ -58,7 +58,7 @@ export default function Modal({modal}) {
         setMessage(true)
       }
 
-      if(amount > userDetails.bal[2].withdraw) {
+      if(amount > userDetails.bal[0].withdraw) {
         setFailed(true)
         setSuccess(false)
         setMessage(true)

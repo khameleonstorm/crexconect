@@ -70,7 +70,11 @@ export default function Index({properties, error}) {
 
 
 
-export async function getServerSideProps({query}) {
+export async function getServerSideProps({query, res}) {
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=608400, stale-while-revalidate=59'
+  )
 
   const city = query.city || "LasVegas"
   const state_code = query.state_code || "NV"
@@ -96,4 +100,3 @@ export async function getServerSideProps({query}) {
     props: { properties: properties, error}
   };
 }
-

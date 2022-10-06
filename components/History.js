@@ -18,7 +18,7 @@ export default function History() {
       querySnapshot.forEach((doc) => {
         docs.push({ ...doc.data(), id: doc.id })
       })
-      setHistory(docs)
+      setHistory(docs, user)
     })
     return unsubscribe
   }, [history])

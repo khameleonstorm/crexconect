@@ -12,8 +12,6 @@ import { useRouter } from "next/router"
 import Profile from '../../components/Profile'
 import Funding from '../../components/Funding'
 import History from '../../components/History'
-import NonSSRWrapper from "../../utils/nossr"
-
 
 
 export default function Index() {
@@ -87,7 +85,6 @@ const view = (event) =>{
 
 
   return (user &&
-    <NonSSRWrapper>
       <div className={styles.container}>
         {modal && <Modal modal={setModal}/>}
         <div className={styles.sidebar}>
@@ -120,6 +117,5 @@ const view = (event) =>{
           }
         </div>
       </div>
-    </NonSSRWrapper>
   )
 }

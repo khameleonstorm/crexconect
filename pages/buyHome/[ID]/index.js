@@ -17,29 +17,33 @@ export default function detailsPage({property}) {
 }
 
 
+export async function getStaticPaths() {
 
-export function getStaticPaths() {
+  const res = await fetch("https://us-real-estate.p.rapidapi.com/for-sale", {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': process.env.NEW_KEY,
+      'X-RapidAPI-Host': 'us-real-estate.p.rapidapi.com'
+    }
+  })
 
-  return {
-    paths: [{
-      params: {
-        ID: "1"
-      }
-    }],
-    fallback: true,
-  }
+  const properties = await res.json();
 
+  const paths = properties.data.results.map(property => ({
+    params: { id: property.property_id },
+  }))
+
+  return { paths, fallback: true }
 }
 
 
-export async function getStaticProps(context) {
-  const pid = context.params.ID
+export async function getStaticProps({ params }) {
 
   let property = '';
   let error = '';
 
   try {
-    const res = await fetch(`https://us-real-estate.p.rapidapi.com/property-detail?property_id=${pid}`, {
+    const res = await fetch(`https://us-real-estate.p.rapidapi.com/property-detail?property_id=${params.id}`, {
       method: 'GET',
       headers: {
         'X-RapidAPI-Key': process.env.NEW_KEY,
